@@ -55,11 +55,8 @@ public class Lab1P2AdonysMercadal {
                 case 2:
                     System.out.println("Listar Todo");
                     for (int i = 0; i < usuarios.size(); i++) {
-                        System.out.print("Nombre: "+usuarios.get(i).getNombre());
-                        System.out.print(" Apellido: "+usuarios.get(i).getApellido());
-                        System.out.print(" Fecha de nacimiento: "+usuarios.get(i).getFechaNacimiento()); 
-                        System.out.println(" Correo: "+usuarios.get(i).getCorreo());
-                        System.out.println(" Contraseña: "+usuarios.get(i).getContra());
+                        Usuario usuarioIm = usuarios.get(i);
+                        System.out.println(usuarioIm);
                         System.out.println("");
                     }
                     break;
