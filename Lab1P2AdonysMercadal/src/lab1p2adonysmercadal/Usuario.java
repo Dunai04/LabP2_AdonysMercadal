@@ -14,7 +14,6 @@ public class Usuario {
     String nombre;
     String apellido;
     Date fechaNacimiento;
-    int anos;
     String correo;
     String contra;
 
@@ -42,14 +41,6 @@ public class Usuario {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public int getAnos() {
-        return anos;
-    }
-
-    public void setAnos(int anos) {
-        this.anos = anos;
-    }
-
     public String getCorreo() {
         return correo;
     }
@@ -66,11 +57,10 @@ public class Usuario {
         this.contra = contra;
     }
 
-    public Usuario(String nombre, String apellido, Date fechaNacimiento, int anos, String correo, String contra) {
+    public Usuario(String nombre, String apellido, Date fechaNacimiento, String correo, String contra) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.fechaNacimiento = fechaNacimiento;
-        this.anos = anos;
         this.correo = correo;
         this.contra = contra;
     }

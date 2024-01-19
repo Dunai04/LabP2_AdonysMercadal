@@ -26,6 +26,7 @@ public class Lab1P2AdonysMercadal {
             int opc = input.nextInt();
             switch (opc) {
                 case 1:
+                    ingresarDatos();
                     break;
                 case 2:
                     break;
@@ -36,6 +37,26 @@ public class Lab1P2AdonysMercadal {
             }
             
         }
+        
+    }
+    public static void ingresarDatos(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Ingresar su nombre del usuario"); 
+        String nombre = input.nextLine();
+        System.out.println("Ingresar su apellido");
+        String apellido = input.nextLine();
+        System.out.println("Ingresar fecha de nacimiento formato(yyyy/MM/dd");
+        String fecha = input.nextLine();
+        System.out.println("Ingresar su correo electronico ");
+        String correo = input.nextLine();
+        System.out.println("Ingresar contraseña");
+        String contra = input.nextLine();
+        
+    }
+    public static void listarDatos(){
+        
+    }
+    public static void listarDominio(){
         
     }
 }
