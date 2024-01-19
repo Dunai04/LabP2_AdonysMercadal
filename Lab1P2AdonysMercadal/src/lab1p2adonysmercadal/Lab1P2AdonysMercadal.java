@@ -29,12 +29,11 @@ public class Lab1P2AdonysMercadal {
         int entrar = 1;
         while (entrar == 1) {
             Scanner input = new Scanner(System.in);
-            int resta = (int)fechaAct.getTime()- (int)fechaNaci.getTime();
-            System.out.println(resta);
             System.out.println("Menu");
             System.out.println("1.Registar usuario");
             System.out.println("2.Listar Todo");
             System.out.println("3.Listar Por Dominio");
+            System.out.println("4.Salir");
             int opc = input.nextInt();
             switch (opc) {
                 case 1:
@@ -54,6 +53,15 @@ public class Lab1P2AdonysMercadal {
                     Usuario nuevoUsuario = new Usuario(nombre, apellido, fechaNaci, correo, contra);
                     break;
                 case 2:
+                    System.out.println("Listar Todo");
+                    for (int i = 0; i < usuarios.size(); i++) {
+                        System.out.print("Nombre: "+usuarios.get(i).getNombre());
+                        System.out.print(" Apellido: "+usuarios.get(i).getApellido());
+                        System.out.print(" Fecha de nacimiento: "+usuarios.get(i).getFechaNacimiento()); 
+                        System.out.println(" Correo: "+usuarios.get(i).getCorreo());
+                        System.out.println(" Contraseña: "+usuarios.get(i).getContra());
+                        System.out.println("");
+                    }
                     break;
                 case 3:
                     break;
