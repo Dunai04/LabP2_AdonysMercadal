@@ -12,12 +12,16 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 /**
  *
  * @author adony
  */
 public class Lab1P2AdonysMercadal {
- public static ArrayList<Usuario> usuarios = new ArrayList();
+    public static Date fechaNaci = null;
+    public static ArrayList<Usuario> usuarios = new ArrayList();
+    public static DateFormat osd = new SimpleDateFormat("yyyy/MM/dd");
+    public static Date fechaAct = new Date();
     /**
      * @param args the command line arguments
      */
@@ -25,6 +29,8 @@ public class Lab1P2AdonysMercadal {
         int entrar = 1;
         while (entrar == 1) {
             Scanner input = new Scanner(System.in);
+            int resta = (int)fechaAct.getTime()- (int)fechaNaci.getTime();
+            System.out.println(resta);
             System.out.println("Menu");
             System.out.println("1.Registar usuario");
             System.out.println("2.Listar Todo");
@@ -32,7 +38,20 @@ public class Lab1P2AdonysMercadal {
             int opc = input.nextInt();
             switch (opc) {
                 case 1:
-                    ingresarDatos();
+                    System.out.println("Ingresar su nombre del usuario");
+                    String nombre = input.nextLine();
+                    nombre = input.nextLine();
+                    System.out.println("Ingresar su apellido");
+                    String apellido = input.nextLine();
+                    boolean validar = validarDatos();
+                    if (validar == false){
+                        break;
+                    }
+                    System.out.println("Ingresar su correo electronico ");
+                    String correo = input.nextLine();
+                    System.out.println("Ingresar contraseña");
+                    String contra = input.nextLine();
+                    Usuario nuevoUsuario = new Usuario(nombre, apellido, fechaNaci, correo, contra);
                     break;
                 case 2:
                     break;
@@ -41,38 +60,29 @@ public class Lab1P2AdonysMercadal {
                 default:
                     System.out.println("Opcion invalida");
             }
-            
+
         }
-        
+
     }
-    public static void ingresarDatos(){
-         Date fechaNaci = null;
-         DateFormat osd = new SimpleDateFormat("yyyy/MM/dd");
-         Scanner input = new Scanner(System.in);
-         System.out.println("Ingresar su nombre del usuario");
-         String nombre = input.nextLine();
-         System.out.println("Ingresar su apellido");
-         String apellido = input.nextLine();
-         System.out.println("Ingresar fecha de nacimiento formato(yyyy/MM/dd)");
-         String fecha = input.nextLine();
-         try {
-         fechaNaci = osd.parse(fecha);
-     } catch (ParseException ex) {
-         System.out.println("Ingrese la fecha con el formato correcto");
-         System.out.println("Ingresar fecha de nacimiento formato(yyyy/MM/dd)");
-         fecha = input.nextLine();
-         fechaNaci = osd.parse(fecha);
-     }
-         System.out.println("Ingresar su correo electronico ");
-         String correo = input.nextLine();
-         System.out.println("Ingresar contraseña");
-         String contra = input.nextLine();
-         Usuario nuevoUsuario = new Usuario(nombre,apellido,fechaNaci,correo,contra);
+
+    public static boolean validarDatos() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Ingresar fecha de nacimiento formato(yyyy/MM/dd)");
+        String fecha = input.nextLine();
+        try {
+            fechaNaci = osd.parse(fecha);
+            return true;
+        } catch (ParseException ex) {
+            System.out.println("Error, Ingrese la fecha con el formato correcto");
+            return false;
+        }
     }
-    public static void listarDatos(){
-        
+
+    public static void listarDatos() {
+
     }
-    public static void listarDominio(){
-        
+
+    public static void listarDominio() {
+
     }
 }
