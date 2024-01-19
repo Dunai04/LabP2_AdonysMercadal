@@ -4,14 +4,17 @@
  */
 package lab1p2adonysmercadal;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Scanner;
-
+import java.util.ArrayList;
+import java.util.Date;
 /**
  *
  * @author adony
  */
 public class Lab1P2AdonysMercadal {
-
+ public static ArrayList<Usuario> usuarios = new ArrayList();
     /**
      * @param args the command line arguments
      */
@@ -39,7 +42,8 @@ public class Lab1P2AdonysMercadal {
         }
         
     }
-    public static void ingresarDatos(){
+    public static void ingresarDatos() throws ParseException {
+        SimpleDateFormat osd = new SimpleDateFormat("yyyy/MM/dd");
         Scanner input = new Scanner(System.in);
         System.out.println("Ingresar su nombre del usuario"); 
         String nombre = input.nextLine();
@@ -47,10 +51,12 @@ public class Lab1P2AdonysMercadal {
         String apellido = input.nextLine();
         System.out.println("Ingresar fecha de nacimiento formato(yyyy/MM/dd");
         String fecha = input.nextLine();
+        Date fechaNaci = osd.parse(fecha);
         System.out.println("Ingresar su correo electronico ");
         String correo = input.nextLine();
         System.out.println("Ingresar contraseña");
         String contra = input.nextLine();
+        Usuario nuevoUsuario = new Usuario(nombre,apellido,fechaNaci,correo,contra);
         
     }
     public static void listarDatos(){
