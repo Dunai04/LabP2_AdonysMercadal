@@ -13,9 +13,19 @@ import java.util.Date;
 public class Usuario {
     String nombre;
     String apellido;
+    String fechaStr;
     Date fechaNacimiento;
     String correo;
     String contra;
+
+    public Usuario(String nombre, String apellido, String fechaStr, Date fechaNacimiento, String correo, String contra) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.fechaStr = fechaStr;
+        this.fechaNacimiento = fechaNacimiento;
+        this.correo = correo;
+        this.contra = contra;
+    }
 
     public String getNombre() {
         return nombre;
@@ -31,6 +41,14 @@ public class Usuario {
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
+    }
+
+    public String getFechaStr() {
+        return fechaStr;
+    }
+
+    public void setFechaStr(String fechaStr) {
+        this.fechaStr = fechaStr;
     }
 
     public Date getFechaNacimiento() {
@@ -57,18 +75,9 @@ public class Usuario {
         this.contra = contra;
     }
 
-    public Usuario(String nombre, String apellido, Date fechaNacimiento, String correo, String contra) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.fechaNacimiento = fechaNacimiento;
-        this.correo = correo;
-        this.contra = contra;
-    }
-
     @Override
     public String toString() {
-        return "Usuario{" + "nombre=" + nombre + ", apellido=" + apellido + ", fechaNacimiento=" + fechaNacimiento + ", correo=" + correo + ", contra=" + contra + '}';
+        return "Usuario{" + "Nombre: " + nombre + ", Apellido: " + apellido + ", Fecha de Nacimiento: " + fechaStr + ", Correo:" + correo + ", Contraseña" + contra + '}';
     }
-    
-    
+
 }
