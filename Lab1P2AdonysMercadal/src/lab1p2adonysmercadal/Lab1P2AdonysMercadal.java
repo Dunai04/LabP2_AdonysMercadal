@@ -18,6 +18,7 @@ import java.util.regex.Pattern;
  * @author adony
  */
 public class Lab1P2AdonysMercadal {
+
     public static String fechastr = "";
     public static int edad;
     public static Date fechaNaci = null;
@@ -53,9 +54,9 @@ public class Lab1P2AdonysMercadal {
                     String correo = input.nextLine();
                     String[] separador = correo.split("@");
                     String dominio = separador[1];
-                    if (dominio.equalsIgnoreCase("icloud.com") || dominio.equalsIgnoreCase("gmail.com") || dominio.equalsIgnoreCase("yahoo.com") || dominio.equalsIgnoreCase("outlook.com") || dominio.equalsIgnoreCase("protonmail.com") || dominio.equalsIgnoreCase("fastmail.com")){
-                        System.out.println("Dominio Valido"); 
-                    }else{
+                    if (dominio.equalsIgnoreCase("icloud.com") || dominio.equalsIgnoreCase("gmail.com") || dominio.equalsIgnoreCase("yahoo.com") || dominio.equalsIgnoreCase("outlook.com") || dominio.equalsIgnoreCase("protonmail.com") || dominio.equalsIgnoreCase("fastmail.com")) {
+                        System.out.println("Dominio Valido");
+                    } else {
                         System.out.println("El dominio no es valido");
                         break;
                     }
@@ -78,7 +79,7 @@ public class Lab1P2AdonysMercadal {
                         break;
                     }
                     System.out.println("Usuario creado :)");
-                    Usuario nuevoUsuario = new Usuario(nombre, apellido,fechastr, fechaNaci,edad, correo, contra);
+                    Usuario nuevoUsuario = new Usuario(nombre, apellido, fechastr, fechaNaci, edad, dominio, correo, contra);
                     usuarios.add(nuevoUsuario);
                     break;
                 case 2:
@@ -90,7 +91,11 @@ public class Lab1P2AdonysMercadal {
                     }
                     break;
                 case 3:
+                    ImpriUsu();
                     break;
+                case 4:
+                    System.out.println("saliendo");
+                    entrar +=4;
                 default:
                     System.out.println("Opcion invalida");
             }
@@ -135,8 +140,17 @@ public class Lab1P2AdonysMercadal {
         Matcher matcher = pattern.matcher(correo);
         return matcher.matches();
     }
-    public static int edad(Date fechaNaci){
-     edad = fechaAct.getYear() - fechaNaci.getYear();
+
+    public static int edad(Date fechaNaci) {
+        edad = fechaAct.getYear() - fechaNaci.getYear();
         return edad;
+    }
+
+    public static void ImpriUsu() {
+        System.out.println("Lista Por Dominio");
+        for (int i = 0; i < usuarios.size(); i++) {
+            Usuario usuarioIm = usuarios.get(i);
+             System.out.println("Usuario[" +"Dominio"+ usuarioIm.getDomino() + "Nombre: " + usuarioIm.getNombre() + ", Apellido: " + usuarioIm.getApellido() + ", Fecha de Nacimiento: " + usuarioIm.getFechaNacimiento() + ", Edad: " + usuarioIm.getEdad() + ", Correo: " + usuarioIm.getCorreo() + ", Contraseña: " + usuarioIm.getContra() + "]");
+        }
     }
 }
