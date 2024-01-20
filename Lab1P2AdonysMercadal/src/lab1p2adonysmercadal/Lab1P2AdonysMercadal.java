@@ -19,6 +19,7 @@ import java.util.regex.Pattern;
  */
 public class Lab1P2AdonysMercadal {
     public static String fechastr = "";
+    public static int edad;
     public static Date fechaNaci = null;
     public static ArrayList<Usuario> usuarios = new ArrayList();
     public static DateFormat osd = new SimpleDateFormat("yyyy/MM/dd");
@@ -50,6 +51,14 @@ public class Lab1P2AdonysMercadal {
                     }
                     System.out.println("Ingresar su correo electronico ");
                     String correo = input.nextLine();
+                    String[] separador = correo.split("@");
+                    String dominio = separador[1];
+                    if (dominio.equalsIgnoreCase("icloud.com") || dominio.equalsIgnoreCase("gmail.com") || dominio.equalsIgnoreCase("yahoo.com") || dominio.equalsIgnoreCase("outlook.com") || dominio.equalsIgnoreCase("protonmail.com") || dominio.equalsIgnoreCase("fastmail.com")){
+                        System.out.println("Dominio Valido"); 
+                    }else{
+                        System.out.println("El dominio no es valido");
+                        break;
+                    }
                     if (correoValido(correo)) {
                         System.out.println("Correo disponible");
                     } else {
@@ -69,7 +78,7 @@ public class Lab1P2AdonysMercadal {
                         break;
                     }
                     System.out.println("Usuario creado :)");
-                    Usuario nuevoUsuario = new Usuario(nombre, apellido,fechastr, fechaNaci, correo, contra);
+                    Usuario nuevoUsuario = new Usuario(nombre, apellido,fechastr, fechaNaci,edad, correo, contra);
                     usuarios.add(nuevoUsuario);
                     break;
                 case 2:
@@ -127,7 +136,7 @@ public class Lab1P2AdonysMercadal {
         return matcher.matches();
     }
     public static int edad(Date fechaNaci){
-    int edad = fechaAct.getYear() - fechaNaci.getYear();
+     edad = fechaAct.getYear() - fechaNaci.getYear();
         return edad;
     }
 }

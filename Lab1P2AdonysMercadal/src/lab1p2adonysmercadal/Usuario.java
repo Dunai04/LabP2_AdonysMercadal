@@ -11,18 +11,21 @@ import java.util.Date;
  * @author adony
  */
 public class Usuario {
+
     String nombre;
     String apellido;
     String fechaStr;
     Date fechaNacimiento;
+    int edad;
     String correo;
     String contra;
 
-    public Usuario(String nombre, String apellido, String fechaStr, Date fechaNacimiento, String correo, String contra) {
+    public Usuario(String nombre, String apellido, String fechaStr, Date fechaNacimiento, int edad, String correo, String contra) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.fechaStr = fechaStr;
         this.fechaNacimiento = fechaNacimiento;
+        this.edad = edad;
         this.correo = correo;
         this.contra = contra;
     }
@@ -59,6 +62,14 @@ public class Usuario {
         this.fechaNacimiento = fechaNacimiento;
     }
 
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
     public String getCorreo() {
         return correo;
     }
@@ -77,7 +88,7 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario{" + "Nombre: " + nombre + ", Apellido: " + apellido + ", Fecha de Nacimiento: " + fechaStr + ", Correo:" + correo + ", Contraseña" + contra + '}';
+        return "Usuario[" + "Nombre: " + nombre + ", Apellido: " + apellido + ", Fecha de Nacimiento: " + fechaStr + " Edad: " + edad + " Correo:" + correo + ", Contraseña" + contra + ']';
     }
 
 }
